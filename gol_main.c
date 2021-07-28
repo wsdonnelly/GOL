@@ -5,7 +5,7 @@ int main(int argc, char** argv)
 	t_term_size t_size;
 	char **gridA;
 	char **gridB;
-	char c = '$';
+	char c = 'O';
 
 	get_term_size(&t_size);
 	//printf("rows %d\n", t_size.rows);

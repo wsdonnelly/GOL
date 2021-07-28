@@ -45,7 +45,68 @@ void rand_init_grid(char *argv, char **gridA, t_term_size *t_size)
 
 void print_screen(char **grid, t_term_size *t_size, char c)
 {
-	//printf("\033[2J");
+	printf("\033[H");
+
+	for (int i = 0; i < t_size->rows; i++)
+	{
+		for (int j = 0; j < t_size->cols; j++)
+		{
+			if (grid[i][j] == 1)
+			{
+				
+				
+				if (num_neighbors(grid, i, j, t_size) == 1)
+				{
+					printf("\033[37m");
+					printf("%c", c);
+				}
+				else if (num_neighbors(grid, i, j, t_size) == 2)
+				{
+					printf("\033[36m");
+					printf("%c", c);
+				}
+				else if (num_neighbors(grid, i, j, t_size) == 3)
+				{
+					printf("\033[35m");
+					printf("%c", c);
+				}
+				else if (num_neighbors(grid, i, j, t_size) == 4)
+				{
+					printf("\033[34m");
+					printf("%c", c);
+				}
+				else if (num_neighbors(grid, i, j, t_size) == 5)
+				{
+					printf("\033[33m");
+					printf("%c", c);
+				}
+				else if (num_neighbors(grid, i, j, t_size) == 6)
+				{
+					printf("\033[32m");
+					printf("%c", c);
+				}
+				else if (num_neighbors(grid, i, j, t_size) == 7)
+				{
+					printf("\033[31m");
+					printf("%c", c);
+				}
+				else if (num_neighbors(grid, i, j, t_size) == 8)
+				{
+					printf("\033[37m");
+					printf("%c", c);
+				}
+	
+			}
+			else
+				printf(" ");
+		}
+		printf("\033[E");
+	}
+	fflush(stdout);
+}
+/*
+void print_screen(char **grid, t_term_size *t_size, char c)
+{
 	printf("\033[H");
 
 	for (int i = 0; i < t_size->rows; i++)
@@ -54,18 +115,16 @@ void print_screen(char **grid, t_term_size *t_size, char c)
 		{
 			if (grid[i][j] == 1)
 				printf("%c", c);
-				//printf("\033[07m  \033[m");
 			else
 				printf(" ");
 		}
-		//printf("\n");
 		printf("\033[E");
 	}
 	fflush(stdout);
 }
-
-
+*/
 /*
+
 Any live cell with two or three live neighbours survives.
 Any dead cell with three live neighbours becomes a live cell.
 All other live cells die in the next generation. Similarly, all other dead cells stay dead.
@@ -115,71 +174,3 @@ int num_neighbors(char **grid, int i , int j, t_term_size *t_size)
 			count++;
 	return (count);
 }
-
-/*
-//PACMANspace
-int num_neighbors(char **grid, int i , int j, t_term_size *t_size)
-{
-	int count = 0;
-
-	if (i == 0 && j == 0) //top left corner
-	{
-		if (grid[t_size->rows - 1][t_size->cols - 1] == 1)
-			count++;
-		if (grid[t_size->rows - 1][j] == 1)
-			count++
-		if (grid[t_size->rows - 1][j + 1] == 1)
-			count++;
-		if (grid[i][t_size->cols - 1] == 1)
-			count++;
-		if (grid[i][j + 1] == 1)
-			count++;
-		if (grid[i + 1][t_size->cols - 1] == 1)
-			count++;
-		if (grid[i + 1][j] == 1)
-			count++;
-		if (grid[i + 1][j + 1] == 1)
-			count++;
-	}
-	else if (i == 0 && j == t_size->cols - 1) //top right corner
-	{
-		if(grid[t_size->rows - 1][j - 1] == 1)
-			count++;
-		if(grid[t_size->rows - 1][j] == 1)
-			count++;
-		if(grid[t_size->rows - 1][0] == 1)
-			count++;
-		if(grid[i][j - 1] == 1)
-			count++;
-		if(grid[i][0] == 1)
-			count++;
-		if(grid[i + 1][j - 1] == 1)
-			count++;
-		if(grid[i + 1][j] == 1)
-			count++;
-		if(grid[i + 1][0] == 1)
-			count++;
-	}
-	else if (i == t_size->rows - 1) && j == 0) //bottom left corner
-	{
-		if (grid[][] == 1)
-			count++;
-		if (grid[][] == 1)
-			count++;
-		if (grid[][] == 1)
-			count++;
-		if (grid[][] == 1)
-			count++;
-		if (grid[][] == 1)
-			count++;
-		if (grid[][] == 1)
-			count++;
-		if (grid[][] == 1)
-			count++;
-		if (grid[][] == 1)
-			count++;
-	}
-
-	return (count);
-}
-*/
