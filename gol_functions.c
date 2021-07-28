@@ -88,6 +88,7 @@ void evolve(char **grid1, char **grid2, t_term_size *t_size)
 int num_neighbors(char **grid, int i , int j, t_term_size *t_size)
 {
 	int count = 0;
+
 	if (i - 1 >= 0 && j - 1 >= 0)
 		if (grid[i - 1][j - 1] == 1)
 			count++;
@@ -103,14 +104,82 @@ int num_neighbors(char **grid, int i , int j, t_term_size *t_size)
 	if (i + 1 < t_size->rows)
 		if (grid[i + 1][j] == 1)
 			count++;
-	if (i + 1 < t_size->rows && j + 1 < t_size->rows)
+	if (i + 1 < t_size->rows && j + 1 < t_size->cols)
 		if (grid[i + 1][j + 1] == 1)
 			count++;
 	if (j - 1 >= 0)
 		if (grid[i][j - 1] == 1)
 			count++;
-	if (j + 1 < t_size->rows )
+	if (j + 1 < t_size->cols)
 		if (grid[i][j + 1] == 1)
 			count++;
 	return (count);
 }
+
+/*
+//PACMANspace
+int num_neighbors(char **grid, int i , int j, t_term_size *t_size)
+{
+	int count = 0;
+
+	if (i == 0 && j == 0) //top left corner
+	{
+		if (grid[t_size->rows - 1][t_size->cols - 1] == 1)
+			count++;
+		if (grid[t_size->rows - 1][j] == 1)
+			count++
+		if (grid[t_size->rows - 1][j + 1] == 1)
+			count++;
+		if (grid[i][t_size->cols - 1] == 1)
+			count++;
+		if (grid[i][j + 1] == 1)
+			count++;
+		if (grid[i + 1][t_size->cols - 1] == 1)
+			count++;
+		if (grid[i + 1][j] == 1)
+			count++;
+		if (grid[i + 1][j + 1] == 1)
+			count++;
+	}
+	else if (i == 0 && j == t_size->cols - 1) //top right corner
+	{
+		if(grid[t_size->rows - 1][j - 1] == 1)
+			count++;
+		if(grid[t_size->rows - 1][j] == 1)
+			count++;
+		if(grid[t_size->rows - 1][0] == 1)
+			count++;
+		if(grid[i][j - 1] == 1)
+			count++;
+		if(grid[i][0] == 1)
+			count++;
+		if(grid[i + 1][j - 1] == 1)
+			count++;
+		if(grid[i + 1][j] == 1)
+			count++;
+		if(grid[i + 1][0] == 1)
+			count++;
+	}
+	else if (i == t_size->rows - 1) && j == 0) //bottom left corner
+	{
+		if (grid[][] == 1)
+			count++;
+		if (grid[][] == 1)
+			count++;
+		if (grid[][] == 1)
+			count++;
+		if (grid[][] == 1)
+			count++;
+		if (grid[][] == 1)
+			count++;
+		if (grid[][] == 1)
+			count++;
+		if (grid[][] == 1)
+			count++;
+		if (grid[][] == 1)
+			count++;
+	}
+
+	return (count);
+}
+*/
