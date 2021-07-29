@@ -57,7 +57,7 @@ void print_screen(char **grid, t_term_size *t_size, char c)
 				
 				if (num_neighbors(grid, i, j, t_size) == 1)
 				{
-					printf("\033[37m");
+					printf("\033[32m");
 					printf("%c", c);
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 2)
@@ -82,12 +82,12 @@ void print_screen(char **grid, t_term_size *t_size, char c)
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 6)
 				{
-					printf("\033[32m");
+					printf("\033[31m");
 					printf("%c", c);
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 7)
 				{
-					printf("\033[31m");
+					printf("\033[37m");
 					printf("%c", c);
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 8)
@@ -137,6 +137,7 @@ void evolve(char **grid1, char **grid2, t_term_size *t_size)
 			if (grid1[i][j] == 1 && (num_neighbors(grid1, i, j, t_size) == 2 || num_neighbors(grid1, i, j, t_size) == 3))
 				grid2[i][j] = 1;
 			else if (grid1[i][j] == 0 && num_neighbors(grid1, i, j, t_size) == 3)
+			//else if (grid1[i][j] == 0 && (num_neighbors(grid1, i, j, t_size) == 3 || num_neighbors(grid1, i, j, t_size) == 6)) //HIGHLIFE
 				grid2[i][j] = 1;
 			else
 				grid2[i][j] = 0;
