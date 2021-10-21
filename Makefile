@@ -20,7 +20,7 @@ $(OBJECTS): $(SOURCES)
 clean:
 	rm -f $(OBJECTS)
 
-fclean:
+fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
