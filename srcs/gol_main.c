@@ -12,13 +12,13 @@ int main(int argc, char** argv)
 	//printf("cols %d\n", t_size.cols);
 	gridA = create_grid(&t_size);
 	gridB = create_grid(&t_size);
-	if (argc != 2)
+	if (argc != 3)
 	{
-		printf("Enter a single parameter\n");
+		printf("Enter a single density parameter followed by an init size parameter\n");
 		return (0);
 	}
 	srand(time(0));
-	rand_init_grid(argv[1], gridA, &t_size);
+	rand_init_grid(argv[1], argv[2], gridA, &t_size);
 	//animate
 	for (int i = 0; i < 1000; i++)
 	{

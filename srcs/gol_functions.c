@@ -26,14 +26,26 @@ void	free_2D_arr(char **grid, t_term_size *t_size)
 	free (grid);
 }
 
-void rand_init_grid(char *argv, char **gridA, t_term_size *t_size)
+//attempt 10th of size of term
+void rand_init_grid(char *density, char *init_size, char **gridA, t_term_size *t_size)
 {
 	int num;
 	int percent;
+	int shift;
+	int i_start;
+	int i_stop;
+	int j_start;
+	int j_stop;
 
-	percent = atoi(argv);
-	for (int i = 0; i < t_size->rows; i++)
-		for (int j = 0; j < t_size->cols; j++)
+	shift = atoi(init_size) * 2;
+	percent = atoi(density);
+	i_start = (t_size->rows / 2) - (t_size->rows / shift);
+	i_stop = (t_size->rows / 2) + (t_size->rows / shift);
+	j_start = (t_size->cols/ 2) - (t_size->cols / shift);
+	j_stop = (t_size->cols/ 2) + (t_size->cols / shift);
+
+	for (int i = i_start; i < i_stop; i++)
+		for (int j = j_start; j < j_stop; j++)
 		{
 			num = rand() % 100;
 			if (num <= percent)
