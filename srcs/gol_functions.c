@@ -55,7 +55,8 @@ void rand_init_grid(char *density, char *init_size, char **gridA, t_term_size *t
 		}
 }
 //color version
-void print_screen(char **grid, t_term_size *t_size, char c)
+//void print_screen(char **grid, t_term_size *t_size, char c)
+void print_screen(char **grid, t_term_size *t_size, char *c )
 {
 	printf("\033[H");
 
@@ -70,42 +71,50 @@ void print_screen(char **grid, t_term_size *t_size, char c)
 				if (num_neighbors(grid, i, j, t_size) == 1)
 				{
 					printf("\033[32m");
-					printf("%c", c);
+					printf("%s", c);
+					//printf("\u2588\u2588");
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 2)
 				{
 					printf("\033[36m");
-					printf("%c", c);
+					printf("%s", c);
+					//printf("\u2588\u2588");
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 3)
 				{
 					printf("\033[35m");
-					printf("%c", c);
+					printf("%s", c);
+					//printf("\u2588\u2588");
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 4)
 				{
 					printf("\033[34m");
-					printf("%c", c);
+					printf("%s", c);
+					//printf("\u2588\u2588");
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 5)
 				{
 					printf("\033[33m");
-					printf("%c", c);
+					printf("%s", c);
+					//printf("\u2588\u2588");
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 6)
 				{
 					printf("\033[31m");
-					printf("%c", c);
+					printf("%s", c);
+					//printf("\u2588\u2588");
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 7)
 				{
 					printf("\033[37m");
-					printf("%c", c);
+					printf("%s", c);
+					//printf("\u2588\u2588");
 				}
 				else if (num_neighbors(grid, i, j, t_size) == 8)
 				{
 					printf("\033[37m");
-					printf("%c", c);
+					printf("%s", c);
+					//printf("\u2588\u2588");
 				}
 	
 			}

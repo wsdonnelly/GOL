@@ -5,11 +5,9 @@ int main(int argc, char** argv)
 	t_term_size t_size;
 	char **gridA;
 	char **gridB;
-	char c = 'O';
+	char *c = "\u2588\u2588";
 
 	get_term_size(&t_size);
-	//printf("rows %d\n", t_size.rows);
-	//printf("cols %d\n", t_size.cols);
 	gridA = create_grid(&t_size);
 	gridB = create_grid(&t_size);
 	if (argc != 3)
