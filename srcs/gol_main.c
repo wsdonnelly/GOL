@@ -5,7 +5,7 @@ int main(int argc, char** argv)
 	t_term_size t_size;
 	char **gridA;
 	char **gridB;
-	char *c = "\u2588\u2588";
+	char *c = "\u2580";
 
 	get_term_size(&t_size);
 	gridA = create_grid(&t_size);
@@ -23,11 +23,13 @@ int main(int argc, char** argv)
 		if (i % 2 == 0)
 		{
 			print_screen(gridA, &t_size, c);
+			//print_screen(gridA, &t_size);
 			evolve(gridA, gridB, &t_size);
 		}
 		else
 		{
-			print_screen(gridB, &t_size, c);
+			print_screen(gridA, &t_size, c);
+			//print_screen(gridA, &t_size);
 			evolve(gridB, gridA, &t_size);
 		}
 		usleep(200000);
