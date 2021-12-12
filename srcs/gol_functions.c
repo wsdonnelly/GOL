@@ -54,7 +54,7 @@ void rand_init_grid(char *density, char *init_size, char **gridA, t_term_size *t
 				gridA[i][j] = 0;
 		}
 }
-
+//color version
 void print_screen(char **grid, t_term_size *t_size, char c)
 {
 	printf("\033[H");
@@ -116,7 +116,8 @@ void print_screen(char **grid, t_term_size *t_size, char c)
 	}
 	fflush(stdout);
 }
-/*
+
+/* B&W version
 void print_screen(char **grid, t_term_size *t_size, char c)
 {
 	printf("\033[H");
