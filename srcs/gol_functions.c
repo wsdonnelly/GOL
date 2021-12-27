@@ -55,7 +55,7 @@ void rand_init_grid(char *density, char *init_size, char **gridA, t_term_size *t
 		}
 }
 
-void print_screen(char **grid, t_term_size *t_size, char c)
+void print_screen(char **grid, t_term_size *t_size, unsigned char c)
 {
 	printf("\033[H");
 
